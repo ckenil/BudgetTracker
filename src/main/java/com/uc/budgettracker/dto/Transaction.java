@@ -1,12 +1,16 @@
 package com.uc.budgettracker.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/*
+ * Class that represents a single transaction
+ */
 @Entity
 public class Transaction {
 	/*
@@ -18,27 +22,42 @@ public class Transaction {
 	/*
 	 * Foreign key budget id
 	 */
+	@Column(name = "budgetId")
 	private Long budgetId;
 	/*
 	 * Name describing the transaction
 	 */
+	@Column(name = "name")
 	private final String name;
 	/*
 	 * Description of the transaction
 	 */
+	@Column(name = "description")
 	private final String description;
-
 	/*
 	 * Amount of the transaction
 	 */
+	@Column(name="amount")
 	private final Double amount;
 
 	/*
 	 * Date the transaction occurred
 	 */
-	private final Date date;
+	@Column(name="date")
+	private final LocalDate date;
 
-	public Transaction(Long transactionId, String name, String description, Double amount, Date date) {
+	public Transaction(Long transactionId, Long budgetId, String name, String description, Double amount, LocalDate date) {
+		super();
+		this.transactionId = transactionId;
+		this.budgetId = budgetId;
+		this.name = name;
+		this.description = description;
+		this.amount = amount;
+		this.date = date;
+	}
+
+	
+	public Transaction(Long transactionId, String name, String description, Double amount, LocalDate date) {
 		super();
 		this.transactionId = transactionId;
 		this.name = name;
@@ -47,19 +66,27 @@ public class Transaction {
 		this.date = date;
 	}
 
-	public Transaction(String name, String description, Double amount, Date date) {
+	public Transaction(String name, String description, Double amount, LocalDate date) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.amount = amount;
 		this.date = date;
 	}
+	
+	public Long getBudgetId() {
+		return budgetId;
+	}
+
+	public void setBudgetId(Long budgetId) {
+		this.budgetId = budgetId;
+	}
 
 	public Double getAmount() {
 		return amount;
 	}
 
-	public Date getDate() {
+	public LocalDate getLocalDate() {
 		return date;
 	}
 

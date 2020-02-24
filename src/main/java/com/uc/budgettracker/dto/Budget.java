@@ -1,14 +1,18 @@
 package com.uc.budgettracker.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+/*
+ * A class that represents a user's budget 
+ */
 @Entity
 public class Budget {
 	/*
@@ -21,6 +25,7 @@ public class Budget {
 	/*
 	 * Foreign key of the User's ID
 	 */
+	@Column(name="userId")
 	private Long userId;
 	/*
 	 * List of all transactions related to the budgetId
@@ -30,13 +35,15 @@ public class Budget {
 	/*
 	 * The net balance of the account during the transaction period
 	 */
+	@Column(name="balance")
 	private Double balance;
 	/*
 	 * Date representing the transaction period of the budget
 	 */
-	private Date period;
+	
+	private LocalDate period;
 
-	public Budget(List<Transaction> transactions, Long userId, Double balance, Date period) {
+	public Budget(List<Transaction> transactions, Long userId, Double balance, LocalDate period) {
 		super();
 		this.transactions = transactions;
 		this.userId = userId;
@@ -44,7 +51,7 @@ public class Budget {
 		this.period = period;
 	}
 
-	public Budget(Long budgetId, List<Transaction> transactions, Long userId, Double balance, Date period) {
+	public Budget(Long budgetId, List<Transaction> transactions, Long userId, Double balance, LocalDate period) {
 		super();
 		this.budgetId = budgetId;
 		this.transactions = transactions;
@@ -61,7 +68,7 @@ public class Budget {
 		return budgetId;
 	}
 
-	public Date getPeriod() {
+	public LocalDate getPeriod() {
 		return period;
 	}
 
@@ -81,7 +88,7 @@ public class Budget {
 		this.budgetId = budgetId;
 	}
 
-	public void setPeriod(Date period) {
+	public void setPeriod(LocalDate period) {
 		this.period = period;
 	}
 
