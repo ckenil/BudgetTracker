@@ -12,7 +12,7 @@ import javax.persistence.Id;
  * Class that represents a single transaction
  */
 @Entity
-public class Transaction {
+public class TransactionDTO {
 	/*
 	 * Primary key
 	 */
@@ -46,7 +46,7 @@ public class Transaction {
 	@Column(name="date")
 	private final LocalDate date;
 
-	public Transaction(Long transactionId, Long budgetId, String name, String description, Double amount, LocalDate date) {
+	public TransactionDTO(Long transactionId, Long budgetId, String name, String description, Double amount, LocalDate date) {
 		super();
 		this.transactionId = transactionId;
 		this.budgetId = budgetId;
@@ -57,7 +57,7 @@ public class Transaction {
 	}
 
 	
-	public Transaction(Long transactionId, String name, String description, Double amount, LocalDate date) {
+	public TransactionDTO(Long transactionId, String name, String description, Double amount, LocalDate date) {
 		super();
 		this.transactionId = transactionId;
 		this.name = name;
@@ -66,7 +66,7 @@ public class Transaction {
 		this.date = date;
 	}
 
-	public Transaction(String name, String description, Double amount, LocalDate date) {
+	public TransactionDTO(String name, String description, Double amount, LocalDate date) {
 		super();
 		this.name = name;
 		this.description = description;

@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
  * A class that represents a user's budget 
  */
 @Entity
-public class Budget {
+public class BudgetDTO {
 	/*
 	 * Primary key
 	 */
@@ -30,8 +30,8 @@ public class Budget {
 	/*
 	 * List of all transactions related to the budgetId
 	 */
-	@OneToMany(targetEntity = Transaction.class, mappedBy = "budgetId")
-	private List<Transaction> transactions;
+	@OneToMany(targetEntity = TransactionDTO.class, mappedBy = "budgetId")
+	private List<TransactionDTO> transactions;
 	/*
 	 * The net balance of the account during the transaction period
 	 */
@@ -43,7 +43,7 @@ public class Budget {
 	
 	private LocalDate period;
 
-	public Budget(List<Transaction> transactions, Long userId, Double balance, LocalDate period) {
+	public BudgetDTO(List<TransactionDTO> transactions, Long userId, Double balance, LocalDate period) {
 		super();
 		this.transactions = transactions;
 		this.userId = userId;
@@ -51,7 +51,7 @@ public class Budget {
 		this.period = period;
 	}
 
-	public Budget(Long budgetId, List<Transaction> transactions, Long userId, Double balance, LocalDate period) {
+	public BudgetDTO(Long budgetId, List<TransactionDTO> transactions, Long userId, Double balance, LocalDate period) {
 		super();
 		this.budgetId = budgetId;
 		this.transactions = transactions;
@@ -72,7 +72,7 @@ public class Budget {
 		return period;
 	}
 
-	public List<Transaction> getTransactions() {
+	public List<TransactionDTO> getTransactions() {
 		return transactions;
 	}
 
@@ -92,7 +92,7 @@ public class Budget {
 		this.period = period;
 	}
 
-	public void setTransactions(List<Transaction> transactions) {
+	public void setTransactions(List<TransactionDTO> transactions) {
 		this.transactions = transactions;
 	}
 
