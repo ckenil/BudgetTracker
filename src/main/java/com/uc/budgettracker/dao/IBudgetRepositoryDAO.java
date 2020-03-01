@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BudgetRepositoryDAO extends CrudRepository<BudgetDTO, Long> {
+public interface IBudgetRepositoryDAO extends CrudRepository<BudgetDTO, Long> {
 
 }
