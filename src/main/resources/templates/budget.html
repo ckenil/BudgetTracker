@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">​
+<head>​
+<meta charset="utf-8">​
+<title>​
+Budget Tracker​
+</title>​
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">​
+<link href="style.css" rel="stylesheet">
+</head>​
+​
+<body>​
+    <h1 class="container">Add Monthly Budget</h1>​
+    <br>
+    <div class="container">
+        <form>
+            <label for="month">Month:</label>
+            <input type="text" id="month" name="month" style="width: 300px;" class="form-control"><br><br><br>
+            <label for="expenses">Expenses:</label>
+            <input type="text" id="expenses" name="expenses" style="width: 300px;" class="form-control"><br><br><br>
+            <label for="income">Income:</label>
+            <input type="text" id="income" name="income" style="width: 300px;" class="form-control"><br><br><br>
+            <label for="additional">Additional:</label>
+            <input type="text" id="additional" name="additional" style="width: 300px;" class="form-control"><br><br><br>
+        </form>
+    </div>
+    <div class="container">
+        <button id="calculateButton" class="btn btn-success">Calculate</button>
+        <br><br><br>
+        <label>Total Budget:</label>
+        <input type="text" id="additional" name="additional" readonly style="width: 300px;" class="form-control"><br><br><br>
+    </div>
+    <div class="container">
+        <button id="saveButton" class="btn btn-primary">Save</button>
+        <button id="cancelButton" class="btn btn-danger">Cancel</button>
+    </div>
+</body>​
+</html>
