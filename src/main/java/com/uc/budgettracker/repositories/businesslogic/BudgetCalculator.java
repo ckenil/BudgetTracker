@@ -31,7 +31,7 @@ public class BudgetCalculator {
 	 * @param transactions: a list containing the total amount of transactions 
 	 * @param monthOne: a date representing the first month to compare
 	 * @param monthTwo: a date representing the second month to compare
-	 * return: a double representation of the difference between the months' spending
+	 * @return: a double representation of the difference between the months' spending
 	 */
 	public double getSpendingDifference(List<Transaction> transactions, LocalDate monthOne, LocalDate monthTwo) {
 		List<Transaction> cloneTrans = new ArrayList<>(transactions);
@@ -46,5 +46,15 @@ public class BudgetCalculator {
 		balanceTwo = calculateBalance(monthTwoTrans);
 		difference = balanceOne / balanceTwo;
 		return difference;
+	}
+	
+	/*
+	 * Calculates the the difference between an income and expense
+	 * @param income: the income amount
+	 * @param expense: the expendable amount
+	 * @return: the difference between the income and expense
+	 */
+	public double calculateBalance(double income, double expense) {
+		return income - expense;
 	}
 }
