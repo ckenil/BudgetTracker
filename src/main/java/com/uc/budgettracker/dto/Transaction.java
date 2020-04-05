@@ -37,13 +37,13 @@ public class Transaction {
 	/*
 	 * Amount of the transaction
 	 */
-	@Column(name="amount")
+	@Column(name = "amount")
 	private final Double amount;
 
 	/*
 	 * Date the transaction occurred
 	 */
-	@Column(name="date")
+	@Column(name = "date")
 	private final LocalDate date;
 
 	public Transaction(Long transactionId, Long budgetId, String name, String description, Double amount, LocalDate date) {

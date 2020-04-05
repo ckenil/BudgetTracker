@@ -35,7 +35,7 @@ public class Budget {
 	/*
 	 * The net balance of the account during the transaction period
 	 */
-	@Column(name="balance")
+	@Column(name = "balance")
 	private Double balance;
 	/*
 	 * Date representing the transaction period of the budget
