@@ -21,4 +21,8 @@ public class BudgetTrackerController {
 		return "budget";
 	}
 
+	@RequestMapping(value="/transaction")
+	public String createTransaction() {
+		return "transaction";
+	}
 }
