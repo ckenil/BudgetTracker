@@ -11,5 +11,14 @@ public class BudgetTrackerController {
 		return "start";
 	}
 	
+	@RequestMapping(value="/month")
+	public String getMonth() {
+		return "month";
+	}
+	
+	@RequestMapping(value="/budget")
+	public String getMontlyBudget() {
+		return "budget";
+	}
 
 }
