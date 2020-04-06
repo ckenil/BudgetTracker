@@ -1,7 +1,6 @@
 package com.uc.budgettracker.dto;
 
 import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
