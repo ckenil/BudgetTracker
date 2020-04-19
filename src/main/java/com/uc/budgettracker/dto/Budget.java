@@ -42,6 +42,10 @@ public class Budget {
 	 */
 	
 	private LocalDate period;
+	
+	public Budget() {
+		
+	}
 
 	public Budget(List<Transaction> transactions, Long userId, Double balance, LocalDate period) {
 		super();

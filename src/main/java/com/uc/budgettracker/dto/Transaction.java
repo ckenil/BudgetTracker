@@ -28,23 +28,29 @@ public class Transaction {
 	 * Name describing the transaction
 	 */
 	@Column(name = "name")
-	private final String name;
+	private String name;
 	/*
 	 * Description of the transaction
 	 */
 	@Column(name = "description")
-	private final String description;
+	private String description;
 	/*
 	 * Amount of the transaction
 	 */
 	@Column(name="amount")
-	private final Double amount;
+	private Double amount;
 
 	/*
 	 * Date the transaction occurred
 	 */
 	@Column(name="date")
-	private final LocalDate date;
+	private LocalDate date;
+	
+
+	public Transaction() {
+		super();
+	}
+
 
 	public Transaction(Long transactionId, Long budgetId, String name, String description, Double amount, LocalDate date) {
 		super();
