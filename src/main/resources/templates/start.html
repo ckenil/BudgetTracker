@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org">​
+<html lang="en" xmlns:th="http://www.thymeleaf.org">​
 <head>​
 <meta charset="utf-8">​
 <title>​
@@ -9,7 +9,12 @@ Budget Tracker​
 </head>​
 ​
 <body onload="createCards()">​
-<h1>Budget Tracker</h1>​
+<h1>Budget Tracker</h1>
+<form action="#" th:action="@{/budget}" th:method="get">
+	<button type="submit" class="btn btn-primary">
+		Add Monthly Budget
+	</button>
+</form>
 <br>
 </body>​
 <script type="text/javascript" th:src="@{js/start.js}"></script>

@@ -1,91 +1,91 @@
-const userTransactionHistory = [
-    {
-        id: 1,
-        budget_id: 1,
-        date: new Date(`03/27/2020`),
-        note: `Basketball Pump`,
-        value: -25.00
-    },
-    {
-        id: 2,
-        budget_id: 1,
-        date: new Date(`03/22/2020`),
-        note: `Helped Brother Move`,
-        value: 100.00
-    },
-    {
-        id: 3,
-        budget_id: 1,
-        date: new Date(`03/20/2020`),
-        note: `Walter's Walnuts`,
-        value: -60.00
-    },
-    {
-        id: 4,
-        budget_id: 1,
-        date: new Date(`03/19/2020`),
-        note: `Joe's Shrimp Shack`,
-        value: -100.00
-    },
-    {
-        id: 5,
-        budget_id: 1,
-        date: new Date(`03/16/2020`),
-        note: `Investments`,
-        value: 1000.00
-    },
-    {
-        id: 6,
-        budget_id: 1,
-        date: new Date(`03/12/2020`),
-        note: `Coronavirus Test`,
-        value: -1040.00
-    },
-    {
-        id: 7,
-        budget_id: 1,
-        date: new Date(`03/11/2020`),
-        note: `ER Visit`,
-        value: -1100.00
-    },
-    {
-        id: 8,
-        budget_id: 1,
-        date: new Date(`03/10/2020`),
-        note: `Found Cash on Ground`,
-        value: 100.00
-    },
-    {
-        id: 9,
-        budget_id: 1,
-        date: new Date(`03/07/2020`),
-        note: `Tuition`,
-        value: -10000.00
-    },
-    {
-        id: 10,
-        budget_id: 1,
-        date: new Date(`03/04/2020`),
-        note: `Weekly Paycheck`,
-        value: 1000.00
-    },
-    {
-        id: 11,
-        budget_id: 1,
-        date: new Date(`03/02/2020`),
-        note: `Drinks at Bar`,
-        value: -50.00
-    }
-];
-
-const thisMonthsBudget = 
-{
-    id: 1,
-    date: new Date(),
-    budgetRemaining: 2000,
-    gains: 300,
-    losses: 1500
-};
+//const userTransactionHistory = [
+//    {
+//        id: 1,
+//        budget_id: 1,
+//        date: new Date(`03/27/2020`),
+//        note: `Basketball Pump`,
+//        value: -25.00
+//    },
+//    {
+//        id: 2,
+//        budget_id: 1,
+//        date: new Date(`03/22/2020`),
+//        note: `Helped Brother Move`,
+//        value: 100.00
+//    },
+//    {
+//        id: 3,
+//        budget_id: 1,
+//        date: new Date(`03/20/2020`),
+//        note: `Walter's Walnuts`,
+//        value: -60.00
+//    },
+//    {
+//        id: 4,
+//        budget_id: 1,
+//        date: new Date(`03/19/2020`),
+//        note: `Joe's Shrimp Shack`,
+//        value: -100.00
+//    },
+//    {
+//        id: 5,
+//        budget_id: 1,
+//        date: new Date(`03/16/2020`),
+//        note: `Investments`,
+//        value: 1000.00
+//    },
+//    {
+//        id: 6,
+//        budget_id: 1,
+//        date: new Date(`03/12/2020`),
+//        note: `Coronavirus Test`,
+//        value: -1040.00
+//    },
+//    {
+//        id: 7,
+//        budget_id: 1,
+//        date: new Date(`03/11/2020`),
+//        note: `ER Visit`,
+//        value: -1100.00
+//    },
+//    {
+//        id: 8,
+//        budget_id: 1,
+//        date: new Date(`03/10/2020`),
+//        note: `Found Cash on Ground`,
+//        value: 100.00
+//    },
+//    {
+//        id: 9,
+//        budget_id: 1,
+//        date: new Date(`03/07/2020`),
+//        note: `Tuition`,
+//        value: -10000.00
+//    },
+//    {
+//        id: 10,
+//        budget_id: 1,
+//        date: new Date(`03/04/2020`),
+//        note: `Weekly Paycheck`,
+//        value: 1000.00
+//    },
+//    {
+//        id: 11,
+//        budget_id: 1,
+//        date: new Date(`03/02/2020`),
+//        note: `Drinks at Bar`,
+//        value: -50.00
+//    }
+//];
+//
+//const thisMonthsBudget = 
+//{
+//    id: 1,
+//    date: new Date(),
+//    budgetRemaining: 2000,
+//    gains: 300,
+//    losses: 1500
+//};
 
 function createCards() {
     let success = false;
@@ -108,15 +108,6 @@ function createCards() {
     const options = { month: 'long', year: 'numeric' };
     monthYear.innerHTML = thisMonthsBudget.date.toLocaleString('default', options);
     titleDiv.appendChild(monthYear);
-    
-    
-    //create button
-    var addTransactionButton = document.createElement(`button`);
-    addTransactionButton.type = "button";
-    addTransactionButton.className = "btn btn-primary";
-    addTransactionButton.innerHTML = `Add Transaction`;
-
-    titleDiv.appendChild(addTransactionButton);
 
     //sort by date descending
     let transactionData = userTransactionHistory.sort((a, b) => (b.date > a.date) ? 1 : ((a.date > b.date) ? -1 : 0));
