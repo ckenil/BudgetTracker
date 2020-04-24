@@ -9,19 +9,17 @@ Budget Tracker​
 <link href="style.css" rel="stylesheet">
 </head>​
 ​
-<body>​
-    <h1 class="container">Add Monthly Budget</h1>​
+<body class="container">​
+    <h1>Add Monthly Budget</h1>​
     <br>
     
-    <form action="#" th:action="@{/budget/new}" th:object="${budget}" method="POST">
+    <form action="#" th:action="@{/budget/new}" th:object="${budget}" th:method="POST">
     <div class="container row">
         <div class="col-lg-8">
         	<label for="month">Month:</label>
             <input type="text" id="month" name="month" style="width: 300px;" class="form-control">
             <label for="expenses">Expenses:</label>
             <input type="text" id="expenses" name="expenses" style="width: 300px;" class="form-control">
-        </div>
-        <div class="col-lg-4">
         	<label for="income">Income:</label>
             <input type="text" id="income" name="income" style="width: 300px;" class="form-control">
             <label for="additional">Additional:</label>
@@ -29,12 +27,12 @@ Budget Tracker​
         </div>
     </div>
     
-    <div class="container row">
-    	<div class="col-lg-4">
-	        <button id="saveButton" type="submit" class="btn btn-primary">Save</button>
-	        <button id="cancelButton" class="btn btn-danger">Cancel</button>
-    	</div>
-    </div>
+    <br>
+	        <button type="submit" class="btn btn-primary">Save</button>
+	</form>
+	<br>
+	<form action="#" th:action="@{/}">
+	        <button type="submit" class="btn btn-warning">Cancel</button>
     </form>
     
 </body>​
