@@ -9,17 +9,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /*
  * A class that represents a user's budget 
  */
 @Entity
+@Table(name="Budget")
 public class Budget {
 	/*
 	 * Primary key
 	 */
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="budgetId")
 	private Long budgetId;
 
 	/*

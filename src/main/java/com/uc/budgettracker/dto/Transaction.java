@@ -17,7 +17,7 @@ public class Transaction {
 	 * Primary key
 	 */
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "transactionId")
 	private Long transactionId;
 	/*
 	 * Foreign key budget id
