@@ -8,19 +8,54 @@ Budget Tracker​
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">​
 </head>​
 ​
-<body class="container" onload="createCards()">
+<body class="container">
 <form action="#" th:action="@{/}">
 	<button type="submit" class="btn btn-secondary">
 		Return to All Budgets
 	</button>
-</form>​
+</form>
+​
 <h1>Monthly View</h1>
 <form action="#" th:action="@{/transaction}" th:method="get">
 	<button type="submit" class="btn btn-primary">
 		Add Transaction
 	</button>
-</form>​
-<br>
+</form>
+
+<div th:each="transaction : ${userTransactions}">
+
+    <form action="#" th:action="@{/transaction/edit}">
+    
+        <button type="submit" th:if="${transaction.amount < 0}">
+            <div class="card text-white bg-danger" style="width: 30rem;">
+                <h5 class="card-title" style="padding-left: 3em;"><span th:text="${transaction.localDate}"></span></h5>
+                <p class="bg-danger"><span th:text="${transaction.amount}"></span></p>
+                <p class="bg-danger"><span th:text="${transaction.description}"></span></p>
+            </div>
+        </button>
+        
+        <button type="submit" th:unless="${transaction.amount < 0}">
+            <div class="card text-white bg-success" style="width: 30rem;">
+                <h5 class="card-title" style="padding-left: 3em;"><span th:text="${transaction.localDate}"></span></h5>
+                <p class="bg-success"><span th:text="${transaction.amount}"></span></p>
+                <p class="bg-success"><span th:text="${transaction.description}"></span></p>
+            </div>
+        </button>
+        
+    </form>
+    
+</div>
+​
+<script type="text/javascript" th:inline="javascript">
+
+        //allows me to see result in browser console
+        /*<![CDATA[*/
+    	...
+        const transactionData = [[${userTransactions}]]
+        ...
+        /*]]>*/
+        
+
+</script>
 </body>​
-<script type="text/javascript" th:src="@{js/month.js}"></script>
 </html>

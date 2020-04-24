@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">​
+<head>​
+<meta charset="utf-8">​
+<title>​
+Budget Tracker​
+</title>​
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">​
+<link href="style.css" rel="stylesheet">
+</head>​
+​
+<body class="container">​
+    <h1>Edit Budget</h1>​
+    <br>
+    
+    <form action="#" th:action="@{/budget/new}" th:object="${budget}" method="POST">
+    <div class="container row">
+        <div class="col-lg-8">
+        	<label for="month">Month:</label>
+            <input type="text" id="month" name="month" style="width: 300px;" th:field="${budget.period}" class="form-control">
+            <label for="expenses">Expenses:</label>
+            <input type="text" id="expenses" name="expenses" style="width: 300px;" th:field="${budget.balance}" class="form-control">
+        	<label for="income">Income:</label>
+            <input type="text" id="income" name="income" style="width: 300px;" th:field="${budget.balance}" class="form-control">
+            <label for="additional">Additional:</label>
+            <input type="text" id="additional" name="additional" style="width: 300px;" th:field="${budget.balance}" class="form-control">
+        </div>
+    </div>
+    
+<br>
+	        <button id="saveButton" type="submit" class="btn btn-primary">Save</button>
+	</form>
+	<br>
+	<form action="#" th:action="@{/}">
+	        <button id="cancelButton" type="submit" class="btn btn-warning">Cancel</button>
+    </form>
+    <br>
+     <form action="#" th:action="@{/budget/delete}">
+	        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+    
+</body>​
+</html>

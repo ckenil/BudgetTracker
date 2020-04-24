@@ -10,29 +10,31 @@ Budget Tracker​
 </head>​
 ​
 <body class="container">​
-    <h1>Add Transaction</h1>​
+    <h1>Edit Transaction</h1>​
     <br>
     
-    <form action="#" th:action="@{/transaction/new}" th:object="${transaction}" th:method="POST">
+    <form action="#" th:action="@{/transaction/new}" th:object="${transaction}" method="POST">
 	    <div class="container row">
 	        <div class="col-lg-8">
 	        	<label for="note">Note:</label>
-	            <input type="text" id="note" name="note" style="width: 300px;" class="form-control">
+	            <input type="text" id="note" name="note" style="width: 300px;" th:field="${transaction.description}" class="form-control"></input>
 	        	<label for="date">Date:</label>
-	            <input type="text" id="date" name="date" style="width: 300px;" class="form-control">
+	            <input type="text" id="date" name="date" style="width: 300px;" th:field="${transaction.localDate}" class="form-control">
 	        	<label for="value">Value:</label>
-	            <input type="text" id="value" name="value" style="width: 300px;" class="form-control">
+	            <input type="text" id="value" name="value" style="width: 300px;" th:field="${transaction.amount}" class="form-control">
 	        </div>
 	    </div>
+	    <br>
 	    
-	<br>
-	
 		    	<button id="saveButton" type="submit" class="btn btn-primary">Save</button>
 	</form>
 	<br>
 	<form action="#" th:action="@{/month}">
 		        <button id="cancelButton" type="submit" class="btn btn-warning">Cancel</button>
     </form>
-    
+    <br>
+    <form action="#" th:action="@{/transaction/delete}">
+	        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
 </body>​
 </html>
