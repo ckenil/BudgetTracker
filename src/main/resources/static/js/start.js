@@ -44,16 +44,19 @@
 
 function createCards() {
     let success = false;
+    var cardForm = document.getElementById(`cardForm`);
 
     //sort by date descending
-    let budgetData = userBudgetData.sort((a, b) => (b.date > a.date) ? 1 : ((a.date > b.date) ? -1 : 0));
+    let budgetData = window["budgetData"];
+    console.log(budgetData);
+    budgetData = budgetData.sort((a, b) => (b.period > a.period) ? 1 : ((a.period > b.period) ? -1 : 0));
 
     //create each card based on objects in array
     for (let month of budgetData) {
         var firstDiv = document.createElement(`div`);
-        firstDiv.id = month.id;
+        firstDiv.id = month.budgetId;
 
-        if(month.budgetRemaining > 0){
+        if(month.balance > 0){
             firstDiv.className = "card text-white bg-success";
             success = true;
         }
@@ -62,32 +65,41 @@ function createCards() {
             success = false;
         }
         firstDiv.style.width = "30rem";
+        
 
         var secondDiv = document.createElement(`div`);
-        secondDiv.id = month.date + `2`;
+        secondDiv.id = month.budgetId + `2`;
         secondDiv.className = "card-header";
 
         var cardHeader = document.createElement(`h4`);
-        cardHeader.innerHTML = month.date.toLocaleString('default', { month: 'long' }) + `, ` + month.date.getFullYear();
+        cardHeader.innerHTML = month.period.toLocaleString('default', { month: 'long' }) + `, ` + month.period.getFullYear();
+        
+        var button = document.createElement(`button`);
+        button.className = "btn btn-dark";
+        button.type = "submit";
+        button.innerHTML = "View Transactions";
 
         var cardTitle = document.createElement(`h5`);
         cardTitle.className = "card-title";
-        cardTitle.innerHTML = `Budget Remaining: ` + month.budgetRemaining;
+        cardTitle.innerHTML = `Budget Remaining: ` + month.balance;
+        cardTitle.style.paddingLeft = "3em";
 
-        var cardText = document.createElement(`p`);
-        if(success){
-            cardText.className = "bg-success";
-        }
-        else {
-            cardText.className = "bg-danger";
-        }
-        cardText.innerHTML = `Gains: ` + month.gains + `<br />Losses: ` + month.losses;
+//        var cardText = document.createElement(`p`);
+//        if(success){
+//            cardText.className = "bg-success";
+//        }
+//        else {
+//            cardText.className = "bg-danger";
+//        }
+//        cardText.innerHTML = `Gains: ` + month.gains + `<br />Losses: ` + month.losses;
+//        cardText.style.paddingLeft = "4em";
         
-        document.body.appendChild(firstDiv);
+        cardForm.appendChild(firstDiv);
         firstDiv.appendChild(secondDiv);
         secondDiv.appendChild(cardHeader);
+        secondDiv.appendChild(button);
         firstDiv.appendChild(cardTitle);
-        firstDiv.appendChild(cardText);
+//        firstDiv.appendChild(cardText);
     } 
 
 };
